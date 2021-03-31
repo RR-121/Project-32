@@ -48,7 +48,6 @@ function setup() {
   catapult1 = new Catapult(b1.body, {x : 450, y : 470});
   catapult2 = new Catapult(b6.body, {x : 950, y : 470});
 
-console.log(goal1_1.body);
 
 }
 
