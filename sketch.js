@@ -8,6 +8,10 @@ var net, ground, bgImg, Hour, catapult1, catapult2;
 var goal1_1, goal1_2, goal1_3, goal2_1, goal2_2, goal2_3; 
 var b1, b2, b3, b4, b5, b6, b7, b8, b9, b10;
 var balloonState = "b1";
+var BlScore = 0;
+var BlRemaining = 5;
+var ReScore = 0;
+var ReRemaining = 5;
 
 
 function preload() {
@@ -47,15 +51,12 @@ function setup() {
   //Catapults
   catapult1 = new Catapult(b1.body, {x : 450, y : 470});
   catapult2 = new Catapult(b6.body, {x : 950, y : 470});
-
-
 }
 
 function draw() {
   if(bgImg)
   background(bgImg);  
   Engine.update(engine);
-
   
   //Base and division colours according to time
   if(Hour <= 18 && Hour >= 06) {
@@ -112,6 +113,16 @@ function draw() {
     catapult2.attach(b10.body);
   
   getTimeAndChangeImage();
+
+  textSize(20);
+  stroke("black")
+  strokeWeight(2);
+  fill("blue");
+  text("Player Blue's Score: "+BlScore, 10, 20);
+  text("Balloons remaining: "+BlRemaining, 10, 45);
+  fill("red");
+  text("Player Red's Score: "+ReScore, 1170, 20); 
+  text("Balloons remaining: "+ReRemaining, 1170, 45);
 
   drawSprites();
 }
