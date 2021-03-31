@@ -1,6 +1,6 @@
 class Goal {
     constructor(x, y, width, height) {
-        var options = {isStatic : true};
+        var options = {isStatic : true, density : 1.2, friction : 2};
         this.body = Bodies.rectangle(x, y, width, height, options);
         this.x = x;
         this.y = y;

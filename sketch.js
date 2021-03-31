@@ -21,16 +21,16 @@ function setup() {
   world = engine.world;
 
   //Water Balloons
-  b1 = new Balloon(230, 520, 50);
-  b2 = new Balloon(180, 520, 50);
-  b3 = new Balloon(130, 520, 50);
-  b4 = new Balloon(80, 520, 50);
-  b5 = new Balloon(30, 520, 50);
-  b6 = new Balloon(1170, 520, 50);
-  b7 = new Balloon(1220, 520, 50);
-  b8 = new Balloon(1270, 520, 50);
-  b9 = new Balloon(1320, 520, 50);
-  b10 = new Balloon(1370, 520, 50);
+  b1 = new Balloon(230, 520);
+  b2 = new Balloon(180, 520);
+  b3 = new Balloon(130, 520);
+  b4 = new Balloon(80, 520);
+  b5 = new Balloon(30, 520);
+  b6 = new Balloon(1170, 520);
+  b7 = new Balloon(1220, 520);
+  b8 = new Balloon(1270, 520);
+  b9 = new Balloon(1320, 520);
+  b10 = new Balloon(1370, 520);
 
   //Base and division
   net = new Net(700, 520);
@@ -47,6 +47,8 @@ function setup() {
   //Catapults
   catapult1 = new Catapult(b1.body, {x : 450, y : 470});
   catapult2 = new Catapult(b6.body, {x : 950, y : 470});
+
+console.log(goal1_1.body);
 
 }
 
@@ -116,11 +118,13 @@ function draw() {
 }
 
 async function getTimeAndChangeImage() {
+  //Getting the time
   var response = await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata");
   var responseJSON = await response.json();
   var datetime = responseJSON.datetime;
   Hour = datetime.slice(11, 13);
 
+  //Changing the image according to the time
   if(Hour <= 18 && Hour >= 06) {
     bg = "images/Day.jpg";
   }
@@ -131,6 +135,8 @@ async function getTimeAndChangeImage() {
 }
 
 function mouseDragged() {
+  //Setting the position of the water balloon bodies to the mouse position when the mouse is dragged
+  //accoding to the 
   if(balloonState === "b1")
     Matter.Body.setPosition(b1.body, {x : mouseX, y : mouseY});
 
