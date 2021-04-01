@@ -6,6 +6,8 @@ class Goal {
         this.y = y;
         this.width = width;
         this.height = height;
+
+        World.add(world, this.body);
     }
     display(colour) {
         var pos = this.body.position;

@@ -8,8 +8,8 @@ var net, ground, bgImg, Hour, catapult1, catapult2;
 var goal1_1, goal1_2, goal1_3, goal2_1, goal2_2, goal2_3; 
 var b1, b2, b3, b4, b5, b6, b7, b8, b9, b10;
 var balloonState = "b1";
-var BlScore = 0;
 var BlRemaining = 5;
+var BlScore = 0;
 var ReScore = 0;
 var ReRemaining = 5;
 
@@ -92,25 +92,47 @@ function draw() {
   catapult1.display();  
   catapult2.display();
 
-  //Reattaching blue balloons
-  if(balloonState === "b2") 
+  //Reattaching blue balloons and updating the red balloons remaining
+  if(balloonState === "b1")
+    ReRemaining = 5;
+  if(balloonState === "b2") {
     catapult1.attach(b2.body);
-  if(balloonState === "b3")
+    ReRemaining = 4;
+  }
+  if(balloonState === "b3") {
     catapult1.attach(b3.body);
-  if(balloonState === "b4")
+    ReRemaining = 3;
+  }
+  if(balloonState === "b4") {
     catapult1.attach(b4.body);
-  if(balloonState === "b5")
+    ReRemaining = 2;
+  }
+  if(balloonState === "b5") {
     catapult1.attach(b5.body);
-  
-  //Reattaching red balloons
-  if(balloonState === "b7") 
+    ReRemaining = 1;
+  }
+  if(balloonState === "end of balloons")
+    ReRemaining = 0;
+
+  //Reattaching red balloons and updating the blue balloons remaining
+  if(balloonState === "b6")
+    BlRemaining = 4;
+  if(balloonState === "b7") {
     catapult2.attach(b7.body);
-  if(balloonState === "b8")
+    BlRemaining = 3;
+  }
+  if(balloonState === "b8") {
     catapult2.attach(b8.body);
-  if(balloonState === "b9")
+    BlRemaining = 2;
+  }
+  if(balloonState === "b9") {
     catapult2.attach(b9.body);
-  if(balloonState === "b10")
+    BlRemaining = 1;
+  }
+  if(balloonState === "b10") {
     catapult2.attach(b10.body);
+    BlRemaining = 0;
+  }
   
   getTimeAndChangeImage();
 

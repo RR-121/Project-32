@@ -27,13 +27,21 @@ class Balloon {
         }
 
         if(this.body.speed < 1 && pos.x > 20 && pos.x < 270 && pos.y < 250 && pos.y > 180) {
-            World.remove(world, this.body);
-            BlScore = BlScore + 10;
+            push();
+            this.visibility = this.visibility - 5;
+            tint(255, this.visibility);
+            pop();
+            if(this.visibility < 0 && this.visibility > -20/3)
+            ReScore = ReScore + 10;
         }
 
         else if(this.body.speed < 1 && pos.x > 1120 && pos.x < 1370 && pos.y < 250 && pos.y > 180) {
-            World.remove(world, this.body);
-            ReScore = ReScore + 10;
+            push();
+            this.visibility = this.visibility -5;
+            tint(255, this.visibility);
+            pop();
+            if(this.visibility < 0 && this.visibility > -20/3)
+            BlScore = BlScore + 10;
         }
     }
 }
