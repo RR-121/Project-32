@@ -25,15 +25,14 @@ class Catapult {
         image(this.image2, pointB.x-27, pointB.y-20, 40, 70);
         if(this.sling.bodyA) {
             var pointA = this.sling.bodyA.position;
+            stroke(138, 65, 26);
             push();
             if(pointB.x < 700) {
-                stroke("blue");
                 strokeWeight(4);
                 line(pointA.x, pointA.y, pointB.x-10, pointB.y);
                 line(pointA.x, pointA.y, pointB.x+30, pointB.y);
             }
             else {
-                stroke("red");
                 strokeWeight(4);
                 line(pointA.x, pointA.y, pointB.x-10, pointB.y);
                 line(pointA.x, pointA.y, pointB.x+30, pointB.y);
